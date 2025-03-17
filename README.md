@@ -47,7 +47,12 @@ This project aims to improve the user experience of gprMax, an open-source softw
 
 
 
-
+# IMPORTANT NOTE
+- The main aim of this repository it to show the scope and use case on how the open-source llms can be used as chatbot . 
+- I have tried to implement that how Open-source LLM's and chroma DB vector can be used for storing embeddings .
+- The current code is not modular , the modular approach would be followed in actual codebase . 
+similar to : https://github.com/eddieleejw/gprmax_chatbot
+- I have understood that what necessary changes needs to be made in actual codebase 
 
 
 
