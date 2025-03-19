@@ -32,7 +32,7 @@ This project aims to improve the user experience of gprMax, an open-source softw
 **Indexing and Vectorizing**
 
 1. The extracted text chunks are converted into vector embeddings using OllamaEmbeddings.
-2. These embeddings are stored in InMemoryVectorStore (In this case i have used InMemoryVectorStore)
+2. These embeddings are stored in ChromaDB vector store .  
 
 
 **Query Processing & Answer Generation**
