@@ -8,7 +8,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama.llms import OllamaLLM
 from langchain_community.embeddings import OllamaEmbeddings
 
-st.set_page_config(page_title="DocuMind AI", layout="wide")
+st.set_page_config(page_title="gprMax Bot", layout="wide")
 
 st.sidebar.title("⚙️ Model Selection")
 selected_model = st.sidebar.radio(
