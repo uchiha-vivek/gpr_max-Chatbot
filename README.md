@@ -47,7 +47,9 @@ This project aims to improve the user experience of gprMax, an open-source softw
 
 
 # SCREENSHOTS
-UI
+
+<img src='static\gprMax-AIBot1-UI.png' alt="ui">
+
 ![AI Chatbot Demo](static\gprMax-AIBot1-UI.png)
 
 ![AI Chatbot Demo](static\gprMax-AIBot1.png)
