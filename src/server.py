@@ -9,7 +9,7 @@ from langchain_ollama.llms import OllamaLLM
 from langchain_community.embeddings import OllamaEmbeddings
 import logging
 from logger import logger
-
+import os
 st.set_page_config(page_title="gprMax Bot", layout="wide")
 
 st.sidebar.title("⚙️ Model Selection")
@@ -29,9 +29,13 @@ Context: {document_context}
 Answer:
 """
 
-PDF_STORAGE_PATH = 'documents/'
+PDF_STORAGE_PATH = 'documents/pdfs/'
+TEXT_STORAGE_PATH='documents/texts/'
 CHROMA_DB_PATH = "chroma_db"
 LANGUAGE_MODEL = OllamaLLM(model=selected_model)
+
+os.makedirs(PDF_STORAGE_PATH,exist_ok=True)
+os.makedirs(TEXT_STORAGE_PATH,exist_ok=True)
 
 chroma_client = chromadb.PersistentClient(path=CHROMA_DB_PATH)
 embedding_function = OllamaEmbeddings(model=selected_model)
@@ -42,21 +46,38 @@ collection = chroma_client.get_or_create_collection(
 )
 
 def save_uploaded_file(uploaded_file):
-    file_path = PDF_STORAGE_PATH + uploaded_file.name
+    file_extension = uploaded_file.name.split(".")[-1].lower()
+    if file_extension == "pdf":
+        save_path = PDF_STORAGE_PATH
+    else:
+        save_path = TEXT_STORAGE_PATH
+
+    file_path = os.path.join(save_path, uploaded_file.name)
+    
     with open(file_path, "wb") as file:
         file.write(uploaded_file.getbuffer())
-    logger.info(f"File uploaded: {uploaded_file.name}")
+
+    logger.info(f"File uploaded: {uploaded_file.name} -> {file_path}")
     return file_path
 
 def download_file_from_url(url):
     try:
         response = requests.get(url)
         if response.status_code == 200:
-            file_name = url.split("/")[-1]   
-            file_path = PDF_STORAGE_PATH + file_name
+            file_name = url.split("/")[-1]
+            file_extension = file_name.split(".")[-1].lower()
+            
+            if file_extension == "pdf":
+                save_path = PDF_STORAGE_PATH
+            else:
+                save_path = TEXT_STORAGE_PATH
+            
+            file_path = os.path.join(save_path, file_name)
+
             with open(file_path, "wb") as file:
                 file.write(response.content)
-            logger.info(f"File downloaded: {file_name}")
+
+            logger.info(f"File downloaded: {file_name} -> {file_path}")
             return file_path
         else:
             st.error("Failed to download file. Please check the URL.")

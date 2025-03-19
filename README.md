@@ -46,6 +46,15 @@ This project aims to improve the user experience of gprMax, an open-source softw
 - llama3.2:1b
 
 
+# SCREENSHOTS
+UI
+![AI Chatbot Demo](static\gprMax-AIBot1-UI.png)
+
+![AI Chatbot Demo](static\gprMax-AIBot1.png)
+
+![AI Chatbot Demo](static\gprMax-AIBot1-Response.png)
+
+
 
 # IMPORTANT NOTE
 - The main aim of this repository it to show the scope and use case on how the open-source llms can be used as chatbot . 
