@@ -5,7 +5,10 @@ from io import BytesIO
 from langchain_community.document_loaders import PDFPlumberLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
+from langchain.chains.combine_documents import create_stuff_documents_chain
+
 from langchain_ollama.llms import OllamaLLM
+from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import OllamaEmbeddings
 import logging
 from logger import logger

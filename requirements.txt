@@ -5,3 +5,11 @@ langchain_ollama
 pdfplumber
 datasets
 chromadb
+groq
+langchain-groq
+faiss-cpu
+langchain_google_genai
+pypdf
+google-cloud-aiplatform>=1.38
+PyPDF2
+pinecone-client
