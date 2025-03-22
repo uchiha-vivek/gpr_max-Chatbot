@@ -13,3 +13,6 @@ pypdf
 google-cloud-aiplatform>=1.38
 PyPDF2
 pinecone-client
+
+!git clone --recursive https://github.com/ggerganov/llama.cpp
+!git clone --recursive https://github.com/ggerganov/llama.cpp
